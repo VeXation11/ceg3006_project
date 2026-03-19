@@ -27,3 +27,13 @@ PPAS-P differentiates itself by integrating direct V2P communication with predic
 <img width="891" height="296" alt="image" src="https://github.com/user-attachments/assets/f405ba31-205d-416f-91a0-c5dd9ccd2eb7" />
 
 <img width="879" height="380" alt="image" src="https://github.com/user-attachments/assets/b4557db6-85c7-483c-85fa-e7e3dced1a3c" />
+
+SYSTEM ARCHITECTURE
+
+<img width="679" height="229" alt="image" src="https://github.com/user-attachments/assets/8a754135-cea2-4386-95e6-a36d62513716" />
+The PPAS-P system consists of four main subsystems: Pedestrian Devices, V2P Communication, Vehicle Edge OBU, and Driver HMI. The pedestrian device collects motion and intent data and broadcasts periodic safety beacons via direct V2P communication (C-V2X or IEEE 802.11p). The vehicle’s OBU receives these beacons, performs edge-based risk estimation, and determines collision likelihood. Based on the predicted risk, the system issues tiered alerts to the driver through the HMI.
+
+<img width="704" height="268" alt="image" src="https://github.com/user-attachments/assets/5933265a-5f97-444f-b274-3261852a7975" />
+The Vehicle Edge OBU processes incoming pedestrian beacons together with vehicle state data to estimate collision risk. After validating and synchronising the data, the system projects pedestrian and vehicle trajectories over a short time horizon. It then computes risk metrics such as Time-To-Collision (TTC) and Closest Point of Approach (CPA) to classify threat levels. The alert manager translates this risk into tiered warnings delivered to the driver or ADAS system.
+
+
