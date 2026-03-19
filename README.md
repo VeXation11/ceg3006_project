@@ -1,1 +1,7 @@
 # ceg3006_project
+
+Brief Description
+PPAS-P (Predictive Phantom Pedestrian Alert System) is a Vehicle-to-Pedestrian (V2P) safety system designed to address pedestrian collision risks caused by visual occlusions in urban environments. These occlusions commonly occur due to buses, parked vehicles, roadside structures, or building corners, which prevent drivers from detecting pedestrians using conventional line-of-sight sensors.
+The system leverages direct V2P communication using technologies such as C-V2X (PC5 sidelink mode) or IEEE 802.11p (DSRC). A pedestrian’s smartphone or wearable device broadcasts periodic safety beacons containing position, velocity, heading, and inferred crossing intent. These beacons are received by the vehicle’s On-Board Unit (OBU), enabling detection even when the pedestrian is physically hidden from view.
+Upon receiving the beacon, the vehicle performs edge-based risk estimation by projecting both pedestrian and vehicle trajectories over a short prediction horizon (2–3 seconds). The system calculates Time-To-Collision (TTC) and Closest Point of Approach (CPA) to determine risk severity. Alerts are issued in tiered levels (advisory, urgent, critical) depending on predicted collision likelihood. All safety-critical processing occurs locally within the vehicle to ensure low latency and independence from cloud infrastructure.
+PPAS-P enhances urban road safety by combining vehicular networking with predictive modeling, specifically targeting occlusion scenarios that traditional ADAS systems struggle to handle.
