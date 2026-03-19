@@ -72,3 +72,28 @@ In a busy urban street, a pedestrian begins crossing the road from between two p
 As a vehicle approaches the area, its onboard system receives this information and combines it with its own speed and direction. The system then predicts where both the pedestrian and the vehicle will be in the next few seconds. Even though the pedestrian cannot be seen by the driver or detected by cameras due to the obstruction, the system can still recognise a potential collision.
 
 It does this by calculating how soon the vehicle and pedestrian might meet and how close they will get to each other. If the situation is considered dangerous, the system immediately sends a warning to the driver through visual or audio alerts inside the vehicle. This early warning allows the driver to slow down or stop in time, preventing an accident and improving safety in situations where visibility is limited.
+
+AI USAGE
+AI Tools Used
+Throughout the development of the PPAS-P (Predictive Phantom Pedestrian Alert System), generative AI tools were used to support multiple stages of the design process.
+
+- ChatGPT (Primary Tool)
+  Used during:
+    - Ideation phase: generating and refining the V2P system concept (occlusion problem, predictive alerts)
+    - System design: structuring system architecture, defining subsystems (pedestrian device, V2P communication, OBU, HMI)
+    - Algorithm development: generating pseudocode for trajectory prediction, Time-To-Collision (TTC), and Closest Point of Approach (CPA)
+    - Documentation: improving clarity, formatting technical explanations, and structuring README content
+
+
+Prompts
+1) Brainstorming of Ideas and Concept Selection
+<img width="1306" height="980" alt="image" src="https://github.com/user-attachments/assets/615e06ed-4175-4aee-8dd9-2f56e3112b28" />
+The generated ideas were evaluated as a group based on feasibility, scalability, and relevance to urban occlusion scenarios. The team identified limitations in existing approaches (e.g., reliance on infrastructure or simple distance-based alerts) and selected a predictive V2P approach. This led to the development of the PPAS-P system, which focuses on trajectory prediction and early risk estimation rather than simple proximity detection. AI helped expand the design space, but the final decision was based on engineering evaluation rather than AI suggestion.
+
+2) Pseudocode for Risk Estimation
+<img width="851" height="1119" alt="image" src="https://github.com/user-attachments/assets/dd014c07-04a6-4909-82e2-d2016ebb5e87" />
+The generated logic was refined and implemented in the project pseudocode, with clearer structure and thresholds for warning and critical alerts.
+
+3) V2P Communication Examples
+<img width="1096" height="846" alt="image" src="https://github.com/user-attachments/assets/41c06999-5c8c-45fa-86f6-38ac23072bd2" />
+Incorporated into the system description and message structure, ensuring alignment with realistic parameters such as latency (<100 ms) and communication range.
