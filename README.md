@@ -13,3 +13,17 @@ First, vision-based Advanced Driver Assistance Systems (ADAS) rely on cameras, r
 Second, infrastructure-assisted smart intersection systems deploy roadside units (RSUs) equipped with sensors to monitor pedestrian crossings. These systems improve detection reliability but are location-specific and costly to deploy at scale, limiting their practicality in widespread urban environments.
 Third, existing V2P proximity warning systems using technologies such as C-V2X and IEEE 802.11p primarily focus on broadcasting presence information. However, many implementations rely on simple distance-based alerts without incorporating predictive trajectory analysis, which can lead to either late warnings or excessive false positives.
 PPAS-P differentiates itself by integrating direct V2P communication with predictive edge-based risk estimation. Instead of issuing alerts solely based on proximity, the system evaluates TTC, trajectory intersection probability, and confidence levels over a defined prediction horizon. This enables earlier and more precise warnings while reducing unnecessary driver distraction. Additionally, the system avoids dependence on fixed infrastructure and cloud processing, ensuring scalability, lower latency (<100 ms), and improved reliability in safety-critical scenarios.
+
+<img width="869" height="510" alt="image" src="https://github.com/user-attachments/assets/077821ac-89e4-4b67-b09b-d7a7bc2cb63b" />
+
+<img width="866" height="344" alt="image" src="https://github.com/user-attachments/assets/81ca0263-5322-479b-bec5-dc285f0c68c3" />
+
+<img width="906" height="382" alt="image" src="https://github.com/user-attachments/assets/cb26a07e-968a-4946-a3ab-98b499ea2a4b" />
+
+<img width="883" height="401" alt="image" src="https://github.com/user-attachments/assets/0ce1e1a0-0ec2-4835-92a2-ce0911d2cf8d" />
+
+<img width="864" height="330" alt="image" src="https://github.com/user-attachments/assets/785ce32e-1591-4a82-b0b3-0f70fb58bcf3" />
+
+<img width="891" height="296" alt="image" src="https://github.com/user-attachments/assets/f405ba31-205d-416f-91a0-c5dd9ccd2eb7" />
+
+<img width="879" height="380" alt="image" src="https://github.com/user-attachments/assets/b4557db6-85c7-483c-85fa-e7e3dced1a3c" />
