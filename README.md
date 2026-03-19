@@ -36,4 +36,19 @@ The PPAS-P system consists of four main subsystems: Pedestrian Devices, V2P Comm
 <img width="704" height="268" alt="image" src="https://github.com/user-attachments/assets/5933265a-5f97-444f-b274-3261852a7975" />
 The Vehicle Edge OBU processes incoming pedestrian beacons together with vehicle state data to estimate collision risk. After validating and synchronising the data, the system projects pedestrian and vehicle trajectories over a short time horizon. It then computes risk metrics such as Time-To-Collision (TTC) and Closest Point of Approach (CPA) to classify threat levels. The alert manager translates this risk into tiered warnings delivered to the driver or ADAS system.
 
+SYSTEM FLOW CHARTS & PSEUDO CODE
+
+<img width="525" height="1135" alt="image" src="https://github.com/user-attachments/assets/1423d75d-e5f7-47ba-960b-4476582e56a1" />
+<img width="829" height="934" alt="image" src="https://github.com/user-attachments/assets/ffbd924a-8461-4ced-96d4-803af5472cda" />
+This pseudocode describes how the vehicle processes incoming pedestrian beacons to assess collision risk. It extracts both pedestrian and vehicle states, predicts their future trajectories, and computes safety metrics such as Time-to-Collision (TTC) and Closest Point of Approach (CPA). Based on these values, the system classifies the risk level and determines whether to trigger an emergency alert, a warning, or no alert. This ensures timely driver notification in potentially dangerous situations.
+
+<img width="456" height="1146" alt="image" src="https://github.com/user-attachments/assets/72f6592a-f18f-4f12-9cfe-22851e332c35" />
+<img width="879" height="844" alt="image" src="https://github.com/user-attachments/assets/98a05c63-4d63-4c9e-9c85-d3a99af49fe5" />
+This describes the operation of the pedestrian-side system that continuously monitors movement. When movement is detected, it collects key data such as position, speed, heading, and timestamp. These parameters are then packaged into a safety beacon message. The beacon is transmitted via C-V2X to nearby vehicles to support real-time collision risk assessment.
+
+<img width="697" height="1102" alt="image" src="https://github.com/user-attachments/assets/b0d7a769-b003-4fb6-8f9a-2391bc560f6d" />
+<img width="792" height="959" alt="image" src="https://github.com/user-attachments/assets/9a93b636-82f8-46ee-a3ec-eb55de0fa1c1" />
+This shows how the vehicle processes incoming pedestrian beacons to ensure data reliability. It first verifies the beacon format and timestamp, discarding invalid or outdated messages. Once validated, the system extracts key pedestrian information such as position, speed, and heading. This data is then used to update the pedestrian tracking model. Finally, the processed information is forwarded to the risk assessment module for further analysis.
+
+
 
