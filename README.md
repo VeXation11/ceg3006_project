@@ -31,39 +31,45 @@ PPAS-P differentiates itself by integrating direct V2P communication with predic
 SYSTEM ARCHITECTURE
 
 <img width="679" height="229" alt="image" src="https://github.com/user-attachments/assets/8a754135-cea2-4386-95e6-a36d62513716" />
+
 The PPAS-P system consists of four main subsystems: Pedestrian Devices, V2P Communication, Vehicle Edge OBU, and Driver HMI. The pedestrian device collects motion and intent data and broadcasts periodic safety beacons via direct V2P communication (C-V2X or IEEE 802.11p). The vehicle’s OBU receives these beacons, performs edge-based risk estimation, and determines collision likelihood. Based on the predicted risk, the system issues tiered alerts to the driver through the HMI.
 
 <img width="704" height="268" alt="image" src="https://github.com/user-attachments/assets/5933265a-5f97-444f-b274-3261852a7975" />
+
 The Vehicle Edge OBU processes incoming pedestrian beacons together with vehicle state data to estimate collision risk. After validating and synchronising the data, the system projects pedestrian and vehicle trajectories over a short time horizon. It then computes risk metrics such as Time-To-Collision (TTC) and Closest Point of Approach (CPA) to classify threat levels. The alert manager translates this risk into tiered warnings delivered to the driver or ADAS system.
 
 SYSTEM FLOW CHARTS & PSEUDO CODE
 
 <img width="525" height="1135" alt="image" src="https://github.com/user-attachments/assets/1423d75d-e5f7-47ba-960b-4476582e56a1" />
 <img width="829" height="934" alt="image" src="https://github.com/user-attachments/assets/ffbd924a-8461-4ced-96d4-803af5472cda" />
+
 This pseudocode describes how the vehicle processes incoming pedestrian beacons to assess collision risk. It extracts both pedestrian and vehicle states, predicts their future trajectories, and computes safety metrics such as Time-to-Collision (TTC) and Closest Point of Approach (CPA). Based on these values, the system classifies the risk level and determines whether to trigger an emergency alert, a warning, or no alert. This ensures timely driver notification in potentially dangerous situations.
 
 <img width="456" height="1146" alt="image" src="https://github.com/user-attachments/assets/72f6592a-f18f-4f12-9cfe-22851e332c35" />
 <img width="879" height="844" alt="image" src="https://github.com/user-attachments/assets/98a05c63-4d63-4c9e-9c85-d3a99af49fe5" />
+
 This describes the operation of the pedestrian-side system that continuously monitors movement. When movement is detected, it collects key data such as position, speed, heading, and timestamp. These parameters are then packaged into a safety beacon message. The beacon is transmitted via C-V2X to nearby vehicles to support real-time collision risk assessment.
 
 <img width="697" height="1102" alt="image" src="https://github.com/user-attachments/assets/b0d7a769-b003-4fb6-8f9a-2391bc560f6d" />
 <img width="792" height="959" alt="image" src="https://github.com/user-attachments/assets/9a93b636-82f8-46ee-a3ec-eb55de0fa1c1" />
+
 This shows how the vehicle processes incoming pedestrian beacons to ensure data reliability. It first verifies the beacon format and timestamp, discarding invalid or outdated messages. Once validated, the system extracts key pedestrian information such as position, speed, and heading. This data is then used to update the pedestrian tracking model. Finally, the processed information is forwarded to the risk assessment module for further analysis.
 
 <img width="919" height="1290" alt="image" src="https://github.com/user-attachments/assets/7d4f6498-0ef0-45c7-a6ef-3045cff4cde1" />
 <img width="1031" height="1058" alt="image" src="https://github.com/user-attachments/assets/78168636-cc60-448d-88f7-091a2f92ae95" />
+
 This code outlines the decision-making logic used to classify collision risk and trigger appropriate alerts. It compares TTC values against predefined thresholds to decide between emergency, warning, or no alert actions. After determining the alert level, the system records the relevant data for future reference and system evaluation.
 
 Figure 7 shows how the system handles missing beacons by tracking packet loss and adjusting confidence levels.
 <img width="978" height="1313" alt="image" src="https://github.com/user-attachments/assets/16532299-143a-4d3e-92c9-7e6c3288c5ce" />
-
 <img width="986" height="965" alt="image" src="https://github.com/user-attachments/assets/0810132e-71e4-4dc5-baad-ec375305b306" />
+
 This pseudocode outlines the process of detecting communication loss and adjusting system behavior accordingly. It resets tracking when data is received but increases a missed counter when signals are absent. Once a threshold is crossed, the system degrades its confidence level, marks uncertainty, and limits alert generation to prevent false warnings.
 
 Figure 8 shows how the system converts risk levels into appropriate driver alerts, ranging from no alert to visual warnings and emergency audio alerts.
 <img width="688" height="1112" alt="image" src="https://github.com/user-attachments/assets/9b03da25-3b99-4f51-a464-0de507bc8581" />
-
 <img width="1034" height="989" alt="image" src="https://github.com/user-attachments/assets/3a78b530-9825-4bf4-ada6-35882d3a2f98" />
+
 This defines how the system responds to different alert levels generated by the risk module. It uses a switch-case structure to map each risk level to a specific driver notification. For a low risk, the system displays a safe status with no warning. For medium risk, it provides a visual warning on the dashboard, while for high risk, it triggers both a visual warning and an audio alarm to indicate immediate danger.
 
 USE CASE IN REAL-WORLD SCENARIO
@@ -88,14 +94,17 @@ Throughout the development of the PPAS-P (Predictive Phantom Pedestrian Alert Sy
 Prompts
 1) Brainstorming of Ideas and Concept Selection
 <img width="1306" height="980" alt="image" src="https://github.com/user-attachments/assets/615e06ed-4175-4aee-8dd9-2f56e3112b28" />
+
 The generated ideas were evaluated as a group based on feasibility, scalability, and relevance to urban occlusion scenarios. The team identified limitations in existing approaches (e.g., reliance on infrastructure or simple distance-based alerts) and selected a predictive V2P approach. This led to the development of the PPAS-P system, which focuses on trajectory prediction and early risk estimation rather than simple proximity detection. AI helped expand the design space, but the final decision was based on engineering evaluation rather than AI suggestion.
 
 2) Pseudocode for Risk Estimation
 <img width="851" height="1119" alt="image" src="https://github.com/user-attachments/assets/dd014c07-04a6-4909-82e2-d2016ebb5e87" />
+
 The generated logic was refined and implemented in the project pseudocode, with clearer structure and thresholds for warning and critical alerts.
 
 3) V2P Communication Examples
 <img width="1096" height="846" alt="image" src="https://github.com/user-attachments/assets/41c06999-5c8c-45fa-86f6-38ac23072bd2" />
+
 Incorporated into the system description and message structure, ensuring alignment with realistic parameters such as latency (<100 ms) and communication range.
 
 WEAKNESSES
