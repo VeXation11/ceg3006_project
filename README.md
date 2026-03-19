@@ -97,3 +97,26 @@ The generated logic was refined and implemented in the project pseudocode, with 
 3) V2P Communication Examples
 <img width="1096" height="846" alt="image" src="https://github.com/user-attachments/assets/41c06999-5c8c-45fa-86f6-38ac23072bd2" />
 Incorporated into the system description and message structure, ensuring alignment with realistic parameters such as latency (<100 ms) and communication range.
+
+WEAKNESSES
+Despite its usefulness, several limitations and inaccuracies were identified in AI-generated outputs:
+
+  1) Unrealistic or Unverified Parameters
+    - AI sometimes suggested latency or range values without justification.
+    - These values were verified against project requirements and adjusted to realistic ranges (e.g., 20–100 ms latency for V2P communication).
+  
+  2) Oversimplified Risk Calculations
+    - Initial AI outputs treated TTC as a simple direct calculation without considering:
+      - trajectory prediction
+      - synchronization of timestamps
+    This was corrected by incorporating trajectory projection and time alignment, as shown in the system flow and pseudocode.
+  
+  3) Incomplete System Integration Details
+  - AI-generated architectures were often too generic and lacked:
+  - clear data flow between components
+  - integration with vehicle systems (e.g., CAN interface, HMI)
+  These gaps were addressed by refining the architecture into detailed subsystems.
+  
+  4) Lack of Context Awareness
+  - AI occasionally assumed ideal conditions (e.g., perfect GNSS accuracy, no signal loss).
+  - Adjustments were made to account for real-world constraints such as occlusion environments and signal reliability.
